@@ -72,9 +72,6 @@ export default{
                 this.loading = false
             }
         },
-        async addMovie(movie){
-            console.log(movie)
-        }
     },
     computed:{
         moviesUpdated(){
