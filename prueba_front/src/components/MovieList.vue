@@ -57,7 +57,7 @@ export default{
             } catch (error){
                 console.error(error)
             } finally{
-                this.newProfile = {}
+                this.newMovie = {}
                 this.loading = false
             }
         },
