@@ -1,0 +1,31 @@
+services:
+  db:
+    image: postgres:11
+    container_name: movies_db
+    networks:
+      - backend_net
+    volumes:
+      - movies_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: postgres
+      POSTGRES_DB: movies_db
+
+  backend:
+    build: .
+    container_name: movies_backend
+    networks:
+      - backend_net
+    volumes:
+      - .:/movies_backend
+    ports:
+      - "4000:3000"
+    depends_on:
+      - db
+
+volumes:
+  movies_data:
+     
+networks:
+  backend_net:
+
